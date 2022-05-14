@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="div_container">
+    <div id="div_user_list">
+        <p class="center f30">人员名单显示</p>
+        <table id="tbl_user">
+            <tr>
+                <th class="w20">名字</th>
+                <th class="w20">密码</th>
+                <th class="w20">年龄</th>
+                <th class="w20">性别</th>
+                <th class="w20">email</th>
+
+
+            </tr>
+            <tr th:if="${#lists.isEmpty(session.userList)}">
+                <td colspan="4">对不起，没有人，联系工作人员！</td>
+            </tr>
+            <tr th:unless="${#lists.isEmpty(session.userList)}"
+                th:each="user : ${session.userList}">
+                <td th:text="${user.username}">2</td>
+                <td th:text="${user.password}">5</td>
+                <td th:text="${user.age}">20</td>
+                <td th:text="${user.sex}">5</td>
+                <td th:text="${user.email}">20</td>
+
+            </tr>
+
+
+
+
+        </table>
+    </div>
+</div>
+</body>
+</html>

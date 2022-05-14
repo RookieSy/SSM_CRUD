@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<a th:href="@{/user}">查询所有用户信息</a><br>
+
+
+<form th:action="@{/user/id}" method="get" >
+    请输入要查询的人的id <input type="text" name="id" >
+    <input type="submit" value="查询"><br>
+
+</form>
+
+
+
+添加用户
+<form th:action="@{/user}" method="post">
+    用户名：<input type="text" name="username"><br>
+    密码：<input type="password" name="password"><br>
+    年龄：<input type="text" name="age"><br>
+    性别：<input type="text" name="sex"><br>
+    邮箱：<input type="text" name="email"><br>
+    <input type="submit" value="添加"><br>
+</form>
+
+修改用户信息
+<form th:action="@{/user/id}" method="Post">
+    <input type="hidden" name="_method" value="PUT">
+    id：<input type="text" name="id"><br>
+    用户名：<input type="text" name="username"><br>
+    密码：<input type="password" name="password"><br>
+    年龄：<input type="text" name="age"><br>
+    性别：<input type="text" name="sex"><br>
+    邮箱：<input type="text" name="email"><br>
+    <input type="submit" value="修改"><br>
+</form>
+
+
+<form th:action="@{/user/id}" method="post" >
+    <input type="hidden" name="_method" value="DELETE">
+    请输入要删除的人的id <input type="text" name="id" >
+    <input type="submit" value="删除"><br>
+
+</form>
+
+
+</body>
+</html>
